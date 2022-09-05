@@ -1,0 +1,141 @@
+<template>
+  <div class="">
+    <div class="upload-file">
+      <div v-if="files && files.length > 0" class="upload-file__list">
+        <div v-for="file in files" class="upload-name">
+          {{ file.name }}
+          <div class="upload-name__icon" @click.p.prevent="$emit('delete-file', file.id)">
+            <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.25L3.75 4M6.5 6.75L3.75 4M3.75 4L6.5 1.25L1 6.75" stroke="#868B97"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <span class="flex-spacer"></span>
+      <input type="file" name="file-7[]" id="file-7" class="inputfile upload-file__input"
+             @change="previewFiles($event)"
+             data-multiple-caption="{count} files selected" multiple="">
+      <label for="file-7" class="upload-file__label">
+        <span>
+        <svg class="upload-file__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.99994 9.99993C7.99994 8.93907 8.42137 7.92165 9.17152 7.17151C9.92166 6.42136 10.9391 5.99993 11.9999 5.99993C13.0608 5.99993 14.0782 6.42136 14.8284 7.17151C15.5785 7.92165 15.9999 8.93907 15.9999 9.99993V10.9999H16.9999C17.4596 10.9999 17.9147 11.0905 18.3393 11.2664C18.764 11.4422 19.1498 11.7001 19.4748 12.0251C19.7998 12.3501 20.0576 12.7359 20.2335 13.1605C20.4094 13.5852 20.4999 14.0403 20.4999 14.4999C20.4999 14.9596 20.4094 15.4147 20.2335 15.8393C20.0576 16.264 19.7998 16.6498 19.4748 16.9748C19.1498 17.2998 18.764 17.5576 18.3393 17.7335C17.9147 17.9094 17.4596 17.9999 16.9999 17.9999H15.9999C15.7347 17.9999 15.4804 18.1053 15.2928 18.2928C15.1053 18.4804 14.9999 18.7347 14.9999 18.9999C14.9999 19.2652 15.1053 19.5195 15.2928 19.707C15.4804 19.8946 15.7347 19.9999 15.9999 19.9999H16.9999C18.3791 20.0017 19.7085 19.4853 20.7248 18.553C21.7411 17.6208 22.3701 16.3407 22.4871 14.9666C22.6042 13.5924 22.2006 12.2245 21.3566 11.1338C20.5125 10.0431 19.2895 9.30937 17.9299 9.07793C17.7103 7.66282 16.9919 6.3729 15.9044 5.44117C14.8169 4.50943 13.432 3.99731 11.9999 3.99731C10.5679 3.99731 9.18304 4.50943 8.09554 5.44117C7.00804 6.3729 6.28958 7.66282 6.06994 9.07793C4.71483 9.31451 3.49749 10.0501 2.65788 11.1398C1.81827 12.2295 1.4173 13.5941 1.53401 14.9648C1.65072 16.3354 2.27664 17.6126 3.28839 18.5446C4.30015 19.4767 5.62434 19.9959 6.99994 19.9999H7.99994C8.26516 19.9999 8.51952 19.8946 8.70705 19.707C8.89459 19.5195 8.99994 19.2652 8.99994 18.9999C8.99994 18.7347 8.89459 18.4804 8.70705 18.2928C8.51952 18.1053 8.26516 17.9999 7.99994 17.9999H6.99994C6.54032 17.9999 6.08519 17.9094 5.66055 17.7335C5.23591 17.5576 4.85008 17.2998 4.52507 16.9748C4.20007 16.6498 3.94226 16.264 3.76637 15.8393C3.59047 15.4147 3.49994 14.9596 3.49994 14.4999C3.49994 14.0403 3.59047 13.5852 3.76637 13.1605C3.94226 12.7359 4.20007 12.3501 4.52507 12.0251C4.85008 11.7001 5.23591 11.4422 5.66055 11.2664C6.08519 11.0905 6.54032 10.9999 6.99994 10.9999H7.99994V9.99993ZM15.7069 13.2929L12.7069 10.2929C12.5194 10.1055 12.2651 10.0001 11.9999 10.0001C11.7348 10.0001 11.4805 10.1055 11.2929 10.2929L8.29294 13.2929C8.19743 13.3852 8.12125 13.4955 8.06884 13.6175C8.01643 13.7395 7.98885 13.8708 7.98769 14.0035C7.98654 14.1363 8.01184 14.268 8.06212 14.3909C8.1124 14.5138 8.18666 14.6254 8.28055 14.7193C8.37444 14.8132 8.48609 14.8875 8.60899 14.9378C8.73189 14.988 8.86357 15.0133 8.99635 15.0122C9.12912 15.011 9.26034 14.9834 9.38235 14.931C9.50435 14.8786 9.6147 14.8024 9.70694 14.7069L10.9999 13.4139V18.9999C10.9999 19.2652 11.1053 19.5195 11.2928 19.707C11.4804 19.8946 11.7347 19.9999 11.9999 19.9999C12.2652 19.9999 12.5195 19.8946 12.7071 19.707C12.8946 19.5195 12.9999 19.2652 12.9999 18.9999V13.4139L14.2929 14.7069C14.4815 14.8891 14.7341 14.9899 14.9963 14.9876C15.2585 14.9853 15.5094 14.8802 15.6948 14.6948C15.8802 14.5093 15.9853 14.2585 15.9876 13.9963C15.9899 13.7341 15.8891 13.4815 15.7069 13.2929Z"
+                fill="#367BF2"/>
+        </svg>
+        <span class="upload-file__text"><translate>Прикрепить файл</translate></span>
+      </span>
+      </label>
+    </div>
+  </div>
+</template>
+
+<script>
+import {mapActions} from "vuex";
+
+export default {
+  name: 'UiUploadFile',
+  props: ['files'],
+  data() {
+    return {
+      currentFile: [],
+    }
+  },
+  methods: {
+    ...mapActions(['postCampaignFiles']),
+    previewFiles(event) {
+      const fileList = event.target.files;
+
+      if (fileList.length > 0) {
+        this.currentFile = [...fileList];
+
+        this.currentFile.map(file => {
+          const formData = new FormData();
+          formData.append('attachment', file);
+
+          this.postCampaignFiles(formData).then(response => this.files.push(response.data));
+        })
+      }
+    },
+  },
+}
+</script>
+
+<style scoped lang="scss">
+.upload-name {
+  position: relative;
+  margin: .25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dark-gray);
+  font-size: var(--body-small);
+  background-color: rgba(190, 194, 205, 0.15);
+  border-radius: 8px;
+  padding: 8px 13px 8px 36px;
+  background-image: url('@/assets/icons/document.svg');
+  background-repeat: no-repeat;
+  background-position: center left 12px;
+  background-size: 16px;
+}
+
+.upload-name__icon {
+  cursor: pointer;
+  margin-left: .5rem;
+}
+
+.upload-file {
+  margin: 0 -.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  text-align: right;
+}
+
+.upload-file__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex: calc(100% - 170px);
+}
+
+.upload-file__input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  width: 0.4px;
+  height: 0.4px;
+}
+
+.upload-file__label {
+  margin: .25rem;
+  display: flex;
+  align-items: center;
+  flex: 0 170px;
+  color: var(--blue);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.upload-file__icon {
+  margin-right: 8px;
+}
+
+.upload-file__label .upload-file__text,
+.upload-file__label .upload-file__icon path {
+  transition: .25s ease;
+}
+
+.upload-file__label:hover .upload-file__text {
+  color: var(--fiolet);
+}
+
+.upload-file__label:hover .upload-file__icon path {
+  fill: var(--fiolet);
+}
+
+@media (max-width: 768px) {
+  .upload-file__icon {
+    width: 20px;
+  }
+}
+</style>

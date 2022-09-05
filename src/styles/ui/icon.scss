@@ -1,0 +1,125 @@
+.icon-social {
+  position: relative;
+  margin-right: 6px;
+  padding: 6px 6px 6px 25px;
+  border-radius: 5px;
+  background-color: var(--white);
+  color: var(--gray);
+  font-weight: 700;
+  font-size: var(--body);
+  cursor: pointer;
+  transition: all .3s linear;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .3s linear;
+  }
+
+  .popup_bloger &::before {
+    width: 35px;
+    height: 35px;
+  }
+
+  &.telegram::before {
+    background-color: #26a5e4;
+    mask: url('@/assets/icons/telegram.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/telegram.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.telegram:hover::before {
+    background-color: #196991;
+  }
+
+  &.instagram::before {
+    background-color: #de2c82;
+    mask: url('@/assets/icons/instagram.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/instagram.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.instagram:hover::before {
+    background-color: #7b1848;
+  }
+
+  &.tiktok::before {
+    background-color: #000000;
+    mask: url('@/assets/icons/tiktok.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/tiktok.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.tiktok:hover::before {
+    background-color: #333333;
+  }
+
+}
+
+.icon-thumb {
+  position: relative;
+  margin-right: 6px;
+  padding: 6px 6px 6px 25px;
+  border-radius: 5px;
+  background-color: var(--white);
+  color: var(--gray);
+  font-weight: 700;
+  font-size: var(--body);
+  transition: all .3s linear;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .3s linear;
+
+    background-color: #9ca2b8;
+    mask: url('@/assets/icons/thumbs-up.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/thumbs-up.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &:hover::before {
+    background-color: #696c7a;
+  }
+
+  &.up::before {
+    background-color: #367bf2;
+    mask: url('@/assets/icons/thumbs-up.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/thumbs-up.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.up:hover::before {
+    background-color: #295db8;
+  }
+
+  &.down::before {
+    background-color: #e03d74;
+    mask: url('@/assets/icons/thumbs-down.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/thumbs-down.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.down:hover::before {
+    background-color: #92284c;
+  }
+
+}

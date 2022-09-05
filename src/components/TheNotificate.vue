@@ -1,0 +1,66 @@
+<template>
+  <div class="notificate">
+    <IsInProgressPopup
+        v-show="isInProgress"
+        @close-popup="isInProgress = false"
+    />
+
+    <div @click.prevent="isInProgress = true" class="notificate__image">
+      <div class="notificate__active hidden"></div>
+      <svg class="notificate__icon" width="22" height="22" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M17.5775 10.6983C16.9566 9.9732 16.6744 9.34485 16.6744 8.27734V7.91437C16.6744 6.52326 16.3543 5.62696 15.6582 4.73066C14.5853 3.3387 12.7791 2.49976 11.011 2.49976H10.9358C9.20486 2.49976 7.45532 3.30018 6.36386 4.63564C5.62974 5.54992 5.2724 6.48474 5.2724 7.91437V8.27734C5.2724 9.34485 5.00883 9.9732 4.36933 10.6983C3.89878 11.2325 3.74841 11.919 3.74841 12.6621C3.74841 13.406 3.99256 14.1106 4.48253 14.6833C5.12203 15.3698 6.0251 15.8081 6.9476 15.8843C8.2832 16.0367 9.61881 16.0941 10.9738 16.0941C12.328 16.0941 13.6636 15.9982 15.0001 15.8843C15.9217 15.8081 16.8248 15.3698 17.4643 14.6833C17.9534 14.1106 18.1984 13.406 18.1984 12.6621C18.1984 11.919 18.048 11.2325 17.5775 10.6983"/>
+        <path opacity="0.4"
+              d="M12.6808 17.144C12.2559 17.0532 9.6666 17.0532 9.24168 17.144C8.87842 17.2279 8.4856 17.4231 8.4856 17.8511C8.50672 18.2594 8.74579 18.6198 9.07694 18.8484L9.0761 18.8493C9.5044 19.1831 10.007 19.3954 10.5333 19.4716C10.8138 19.5101 11.0994 19.5084 11.39 19.4716C11.9154 19.3954 12.4181 19.1831 12.8464 18.8493L12.8455 18.8484C13.1767 18.6198 13.4157 18.2594 13.4369 17.8511C13.4369 17.4231 13.044 17.2279 12.6808 17.144"/>
+      </svg>
+    </div>
+  </div>
+</template>
+
+<script>
+import IsInProgressPopup from "@/components/IsInProgressPopup";
+
+export default {
+  name: 'TheNotificate',
+  components: {IsInProgressPopup},
+  data() {
+    return {
+      isInProgress: false,
+    }
+  },
+}
+</script>
+
+<style scoped lang="scss">
+.notificate {
+  margin-right: 20px;
+  background-color: var(--bg-gray);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.notificate__image {
+  position: relative;
+  display: flex;
+}
+
+.notificate__active {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  border: 0.852083px solid var(--white);
+  border-radius: 50%;
+  background-color: var(--dark-red);
+}
+
+.notificate__icon {
+  fill: var(--dark-gray);
+}
+</style>

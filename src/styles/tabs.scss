@@ -1,0 +1,122 @@
+.tabs {
+  margin: 0;
+}
+
+.tabs__item {
+  float: left;
+  width: 180px;
+}
+
+.tabs__link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--light-gray);
+  padding-bottom: 8px;
+  background: transparent;
+  border-bottom: 2px solid var(--light-gray);
+
+  &:hover {
+    color: var(--dark-gray);
+    border-bottom: 2px solid var(--dark-gray);
+  }
+
+  &.active {
+    color: var(--dark-gray);
+    border-bottom: 2px solid var(--dark-gray);
+  }
+}
+
+.tabs__span {
+  font-size: 13px;
+}
+.tabs_task {
+  padding-bottom: 16px;
+}
+
+.tabs__item_task {
+  font-size: var(--body-small);
+}
+.tabs__item_auditory {
+  flex: 1;
+}
+
+.tabs_auditory {
+  padding-bottom: 24px;
+  display: flex;
+  flex: 1 1 0;
+  justify-content: space-around;
+  width: 100%;
+}
+@media (max-width: 1249px) {
+  .tabs__item_task {
+    width: 160px;
+  }
+}
+@media (max-width: 825px) {
+  .tabs_company {
+    display: flex;
+    justify-content: center;
+  }
+  .tabs__item_company {
+    width: 160px;
+  }
+}
+@media (max-width: 768px) {
+  .tabs__item_company {
+    width: 140px;
+  }
+  .tabs__item_company {
+    font-size: var(--body-small);
+  }
+}
+
+@media (max-width: 655px) {
+  .tabs__item_company {
+    width: 130px;
+  }
+}
+@media (max-width: 525px) {
+  .tabs__item_company {
+    width: 82px;
+  }
+  .tabs__link_first {
+    position: relative;
+    font-size: 0;
+  }
+  .tabs__link_first::before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 24px;
+    height: 22px;
+    background-color: var(--light-gray);
+  }
+  .tabs__link_first.active::before {
+    background-color: var(--dark-gray);
+  }
+  .tabs__link_one::before {
+    mask: url('@/assets/icons/circled-info.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/circled-info.svg') no-repeat 50%;
+  }
+  .tabs__link_two::before {
+    mask: url('@/assets/icons/people.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/people.svg') no-repeat 50%;
+  }
+  .tabs__link_three::before {
+    mask: url('@/assets/icons/arr-high.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/arr-high.svg') no-repeat 50%;
+  }
+  .tabs__link_four::before {
+    mask: url('@/assets/icons/gift.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/icons/gift.svg') no-repeat 50%;
+  }
+  .tabs__item_task {
+    width: 109px;
+  }
+}
+@media (max-width: 375px) {
+  .tabs__item_task {
+    width: 88px;
+  }
+}

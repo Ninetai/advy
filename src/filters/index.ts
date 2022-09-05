@@ -1,0 +1,3 @@
+import './numberFormat';
+
+export default {};

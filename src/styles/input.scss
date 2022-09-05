@@ -1,0 +1,377 @@
+.form__field {
+  color: var(--very-light-gray);
+  border: 1px solid var(--very-light-gray);
+  border-radius: 16px;
+  font-size: var(--body);
+  padding: 16px;
+  margin-bottom: 16px;
+  outline: none;
+  transition: all .3s linear;
+
+  &.hasError {
+    border-color: red;
+  }
+}
+
+.ui-form-field {
+  border: 1px solid var(--very-light-gray);
+  border-radius: 16px;
+  font-size: var(--body);
+  padding: 16px;
+  outline: none;
+  transition: all .3s linear;
+
+  @media (max-width: 1105px) {
+    font-size: var(--body-small);
+  }
+
+  &:hover {
+    border: 1px solid var(--dark-gray);
+  }
+
+  &.search {
+    padding: 16px 16px 16px 50px;
+    background-image: url('@/assets/icons/search.svg');
+    background-repeat: no-repeat;
+    background-position: center left 16px;
+    background-size: 24px;
+  }
+
+  &.date {
+    position: relative;
+    padding-right: 2rem;
+    background-image: url('@/assets/icons/calendar.svg');
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center right 16px;
+  }
+
+  &.hasError {
+    border-color: red;
+  }
+}
+
+.form__field:hover {
+  border: 1px solid var(--dark-gray);
+}
+
+.form__field_recovery {
+  margin-bottom: 24px;
+}
+
+.form__field::-webkit-input-placeholder {
+  color: var(--very-light-gray);
+}
+
+.form__field::-moz-placeholder {
+  color: var(--very-light-gray);
+}
+
+.form__field_auth {
+  color: var(--dark-gray);
+}
+
+.form__field_auth::-webkit-input-placeholder {
+  color: var(--dark-gray);
+}
+
+.form__field_auth::-moz-placeholder {
+  color: var(--dark-gray);
+}
+
+.form__field_date-use {
+  width: 89px;
+}
+
+.form__field_cvc {
+  width: 67px;
+}
+
+.form__field_card {
+  width: 396px;
+}
+
+.form__field_date {
+  position: relative;
+  background-image: url('@/assets/icons/calendar.svg');
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: center right 16px;
+}
+
+.form__field_textarea {
+  font-family: inherit;
+  font-size: inherit;
+  min-height: 100px;
+  resize: none;
+}
+
+.form__field_age {
+  width: 79px;
+  margin-bottom: 0;
+}
+
+.form__field_price {
+  width: 120px;
+  margin-bottom: 0;
+}
+
+.form__field_price-name {
+  flex-basis: 46%;
+  margin-bottom: 0;
+}
+
+.form__field_search {
+  flex-basis: 31.3%;
+  margin-bottom: 0;
+  margin-right: 16px;
+  padding: 16px 16px 16px 50px;
+  background-image: url('@/assets/icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: center left 16px;
+  background-size: 24px;
+}
+
+.form__field_date-filter {
+  flex-basis: 14.1%;
+  margin-right: 16px;
+}
+
+.form__field_filter {
+  width: 110px;
+  margin-bottom: 0;
+}
+
+.form__field_filter-last {
+  margin-right: 16px;
+}
+
+.form__field_company::-moz-placeholder {
+  color: var(--dark-gray);
+}
+
+.form__field_company::-webkit-input-placeholder {
+  color: var(--dark-gray);
+}
+
+.form__field_multiselect {
+  padding: 0;
+}
+
+.form__field_bloger {
+  flex-basis: 72.7%;
+}
+
+.form__field_result {
+  flex-basis: 100%;
+}
+
+.form__field_barter {
+  flex-basis: 66.4%;
+}
+
+.form__field_tab-date {
+  min-width: 219px;
+  background-image: url('@/assets/icons/calendar.svg');
+  background-size: 20px;
+  color: var(--dark-gray);
+  font-size: var(--body-small);
+}
+
+.form__field_story {
+  flex-basis: 41.2%;
+}
+
+.form__field_acc {
+  margin-bottom: 24px;
+}
+
+.form__field_users {
+  width: 248px;
+}
+
+.form__field_pay {
+  width: 50%;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1600px) {
+  .form__field_manager-date {
+    flex-basis: 17.1%;
+  }
+  .form__field_search-manager {
+    flex-basis: 19.3%;
+  }
+  .form__field_filter {
+    width: 90px;
+  }
+}
+
+@media (max-width: 1340px) {
+  .form__field_manager-date {
+    font-size: 13px;
+  }
+  .form__field_filter {
+    width: 80px;
+  }
+}
+
+@media (max-width: 1310px) {
+  .form__field_filter {
+    width: 70px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .form__field_bloger {
+    flex-basis: 56.7%;
+  }
+  .form__field_manager-date {
+    flex-basis: 23.1%;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 1170px) {
+  .form__field_search-manager {
+    font-size: 14px;
+    margin-right: 8px;
+    padding: 16px 16px 16px 40px;
+    background-position: center left 13px;
+    background-size: 17px;
+  }
+  .form__field_filter {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1130px) {
+  .form__field_date-result {
+    min-width: 160px;
+  }
+  .form__field_barter {
+    flex-basis: 40.4%;
+  }
+}
+
+@media (max-width: 1105px) {
+  .form__field {
+    font-size: var(--body-small);
+  }
+}
+
+@media (max-width: 1024px) {
+  .form__field_date {
+    background-position: center right 10px;
+    padding: 16px 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .form__field_story {
+    flex-basis: 30%;
+  }
+  .form__field_bloger {
+    flex-basis: 40%;
+  }
+  .form__field_date-result {
+    min-width: 122px;
+  }
+}
+
+@media (max-width: 655px) {
+  .form__field_story {
+    flex-basis: auto;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+    order: 2;
+  }
+  .form__field_age {
+    width: 122px;
+  }
+  .form__field_price-name {
+    flex-basis: 100%;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  .form__field_price {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .form__field_bloger {
+    flex-basis: 100%;
+    width: 100%;
+    margin-bottom: 16px;
+    margin-right: 0;
+  }
+  .form__field_tab-date {
+    margin-right: 0;
+  }
+  .form__field_result {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  .form__field_barter {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  .form__field_search-manager {
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .form__field_manager-date {
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .form__field_filter {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .form__field_filter-last {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form__field_card,
+  .form__field_date-use,
+  .form__field_cvc,
+  .form__field_users {
+    width: 100%;
+  }
+  .form__field_pay {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .form__field_age {
+    width: 79px;
+  }
+}
+
+.form__field-autocomplete.v-autocomplete.v-input {
+  & > .v-input__control > .v-input__slot {
+    //color: var(--very-light-gray);
+    //border: 1px solid var(--very-light-gray);
+    //border-radius: 16px;
+    //font-size: var(--body);
+    //padding: 16px;
+    //margin-bottom: 16px;
+    //outline: none;
+    //transition: all 0.3s linear;
+  }
+
+  .v-chip__content {
+    background: rgba(33, 33, 38, 0.7);
+    border-radius: 8px;
+    color: #fff;
+    padding: 2px 6px;
+  }
+}
