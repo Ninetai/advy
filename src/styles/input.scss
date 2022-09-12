@@ -14,11 +14,13 @@
 }
 
 .ui-form-field {
+  width:300px;
   border: 1px solid var(--very-light-gray);
   border-radius: 16px;
   font-size: var(--body);
-  padding: 16px;
-  outline: none;
+  background-color: white;
+  padding: 13px;
+   outline: none;
   transition: all .3s linear;
 
   @media (max-width: 1105px) {
@@ -30,7 +32,7 @@
   }
 
   &.search {
-    padding: 16px 16px 16px 50px;
+    padding: 13px 13px 13px 50px;
     background-image: url('@/assets/icons/search.svg');
     background-repeat: no-repeat;
     background-position: center left 16px;

@@ -1,10 +1,6 @@
 <template>
   <main>
-    <CampaignInfoPopup
-        v-if="isInfoPopupOpened"
-        :influencer="influencerData"
-        @close-popup="isInfoPopupOpened = false"
-    />
+    <CampaignInfoPopup v-if="isInfoPopupOpened" :influencer="influencerData" @close-popup="isInfoPopupOpened = false" />
 
     <div class="wrapper wrapper_main">
       <!-- ADS companies -->
@@ -13,7 +9,7 @@
 
         <div class="main-content__inner">
           <div id="first-tab-group" class="tabgroup">
-            <CampaignStat/>
+            <CampaignStat />
           </div>
         </div>
       </div>
@@ -22,7 +18,7 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
+import { mapActions, mapState } from "vuex";
 import CampaignInfoPopup from "@/components/campaign/CampaignInfoPopup";
 import CampaignHead from "@/components/campaign/CampaignHead";
 import CampaignTabs from "@/components/campaign/CampaignTabs";
@@ -60,7 +56,7 @@ export default {
       const campaignId = this.$route.params.id;
 
       if (!campaignId) {
-        this.$router.push({name: 'manager'});
+        this.$router.push({ name: 'manager' });
       }
 
       this.getCampaignInfo(campaignId).then((campaign) => {
@@ -87,5 +83,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

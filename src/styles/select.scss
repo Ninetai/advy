@@ -1,7 +1,8 @@
 .select {
   display: block;
+  background-color: white;
   font-size: var(--body);
-  padding: 1rem 2.5rem 1rem 1rem;
+  padding: 13px 2.5rem 13px 13px;
   width: 100%;
   max-width: 100%;
   margin-bottom: 30px;
@@ -45,6 +46,7 @@
 }
 
 .select_field {
+
   margin-bottom: 0;
 }
 

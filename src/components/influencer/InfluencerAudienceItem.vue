@@ -25,10 +25,12 @@ export default {
   font-size: 14px;
   line-height: 1.43;
   background: #FAFAFA;
+
   @media (min-width: 768px) {
     max-width: 326px;
     border-radius: 10px;
   }
+
   @media (max-width: 767.98px) {
     margin: 0 -16px;
   }
@@ -45,7 +47,7 @@ export default {
   }
 }
 
-.influencer-audience-item__figures > .influencer-audience-figure {
+.influencer-audience-item__figures>.influencer-audience-figure {
   margin: 11px 0;
 
   .influencer-audience-figure__row {

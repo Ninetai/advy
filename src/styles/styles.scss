@@ -146,8 +146,7 @@ input, button, select {
 
 .wrapper_main {
   background-color: var(--bg-gray);
-  min-height: calc(100vh - 142px);
-}
+ }
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -552,9 +551,12 @@ input, button, select {
   background-position: center;
   background-size: contain;
 }
-
+.v-data-table__wrapper{
+  overflow: hidden !important;
+}
 .main-content {
-  padding: 24px 24px 57px 24px;
+  padding: 24px 24px 30px 24px;
+  // box-sizing: revert;
   @media (max-width: 1170px) {
     padding: 24px 15px 57px 15px;
   }
@@ -728,9 +730,11 @@ input, button, select {
 /* Filter form styles start */
 .filter {
   padding: 16px;
-  margin-top: 24px;
-  background: rgba(255, 255, 255, 0.32);
+   background: #f0f2fa;
   border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .filter_manager {

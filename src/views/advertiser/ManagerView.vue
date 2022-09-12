@@ -1,76 +1,59 @@
 <template>
-  <main>
+  <main class="manager-page">
     <div class="wrapper wrapper_main">
-      <CampaignCreatePopup
-          v-if="isNewCampaign"
-          :mode="'create'"
-          @close-popup="onPopupClose($event)"
-      />
-      <CampaignCreatePopup
-          v-if="isEditCampaignPopupOpened"
-          :id="editCampaignId"
-          :mode="'edit'"
-          @close-popup="onPopupClose($event)"
-      />
+      <CampaignCreatePopup v-if="isNewCampaign" :mode="'create'" @close-popup="onPopupClose($event)" />
+      <CampaignCreatePopup v-if="isEditCampaignPopupOpened" :id="editCampaignId" :mode="'edit'"
+        @close-popup="onPopupClose($event)" />
 
       <!-- ADS companies -->
-      <div class="main-content manager-page">
-        <ManagerHead class="manager-page__head"
-                     @toggle-filters="isFiltersOpened = !isFiltersOpened"
-                     @create-campaign="isNewCampaign = true">
-          <ManagerFilters
-              v-show="isFiltersOpened"
-              :name.sync="filters.name"
-              :status.sync="filters.status"
-              :barter.sync="filters.barter"
-              :budget-from.sync="filters.budgetFrom"
-              :budget-to.sync="filters.budgetTo"
-              :dates.sync="filters.dates"
-          ></ManagerFilters>
-        </ManagerHead>
+      <div class="main-content">
+        <!-- <ManagerHead class="manager-page__head" @toggle-filters="isFiltersOpened = !isFiltersOpened"
+          @create-campaign="isNewCampaign = true">
+        </ManagerHead> -->
+        <ManagerHeader :name.sync="filters.name" :status.sync="filters.status" :barter.sync="filters.barter"
+          :budget-from.sync="filters.budgetFrom" :budget-to.sync="filters.budgetTo" :dates.sync="filters.dates">
+        </ManagerHeader>
 
-        <div class="main-content__inner" :key="scene">
-          <template v-if="scene === 'loading'"><translate>Загружаем список кампаний...</translate></template>
-          <template v-else-if="scene === 'error'"><translate>Не удалось получить список кампаний. Пожалуйста, попробуйте позже</translate>
+
+        <div class="main-content__inner" :key="scene" style="text-align:center; align-items:center;">
+          <template v-if="scene === 'loading'">
+            <translate>Загружаем список кампаний...</translate>
           </template>
-          <template v-else-if="scene === 'empty'"><translate>Список кампаний пуст</translate></template>
+          <template v-else-if="scene === 'error'">
+            <translate>Не удалось получить список кампаний. Пожалуйста, попробуйте позже</translate>
+          </template>
+          <template v-else-if="scene === 'empty'">
+            <translate>Список кампаний пуст</translate>
+          </template>
           <template v-else-if="scene === 'data'">
-            <ManagerList
-                :sortBy.sync="filters.sortBy"
-                :sortDesc.sync="filters.sortDesc"
-                :perPage="filters.perPage"
-                @reload-list="loadCampaignList"
-                @open-edit-popup="openEditPopup($event)"
-            />
-            <UiPagination
-                :page.sync="filters.page"
-                :page-count.sync="pageCount"
-                :per-page.sync="filters.perPage"
-                :items="[5, 10, 15]"
-            />
+            <ManagerList :sortBy.sync="filters.sortBy" :sortDesc.sync="filters.sortDesc" :perPage="filters.perPage"
+              @reload-list="loadCampaignList" @open-edit-popup="openEditPopup($event)" />
+            <UiPagination :page.sync="filters.page" :page-count.sync="pageCount" :per-page.sync="filters.perPage"
+              :items="[5, 10, 15]" />
           </template>
         </div>
       </div>
+      <ManagerFoot />
     </div>
   </main>
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import ManagerList from '@/components/manager/ManagerList';
+import ManagerHeader from '@/components/manager/ManagerHeader';
+import ManagerFoot from '@/components/manager/ManagerFoot';
 import CampaignCreatePopup from '@/components/campaign/CampaignCreatePopup';
-import ManagerHead from '@/components/manager/ManagerHead';
-import ManagerFilters from '@/components/manager/ManagerFilters';
 import UiPagination from '@/components/ui/UiPagination';
-import {buildGetParams} from "@/functions/buildGetParams";
+import { buildGetParams } from "@/functions/buildGetParams";
 
 export default {
   name: 'ManagerView',
   components: {
     CampaignCreatePopup,
-    ManagerFilters,
-    ManagerHead,
+    ManagerHeader,
     ManagerList,
+    ManagerFoot,
     UiPagination,
   },
   data() {
@@ -191,13 +174,13 @@ export default {
         return;
       }
 
-      this.$router.push({query: filter}).catch(() => {
+      this.$router.push({ query: filter }).catch(() => {
       });
     },
     loadPageInfo() {
       this.getUsersAccount()
-          .then((response) => this.accountId = response.data[0][0].id)
-          .then(() => this.loadCampaignList())
+        .then((response) => this.accountId = response.data[0][0].id)
+        .then(() => this.loadCampaignList())
     },
     loadCampaignList() {
       this.scene = 'loading';
@@ -213,15 +196,16 @@ export default {
           ...params,
           ...this.$route.query,
         }
+        // console.log(params)
       }
 
-      this.getCampaignList({id: accountId, query: buildGetParams(params)})
-          .then(list => {
-            this.totalCount = list.count;
-            this.pageCount = Math.ceil(this.totalCount / this.filters.perPage);
-            this.scene = list.results && list.results.length > 0 ? 'data' : 'empty'
-          })
-          .catch(() => this.scene = 'error');
+      this.getCampaignList({ id: accountId, query: buildGetParams(params) })
+        .then(list => {
+          this.totalCount = list.count;
+          this.pageCount = Math.ceil(this.totalCount / this.filters.perPage);
+          this.scene = list.results && list.results.length > 0 ? 'data' : 'empty'
+        })
+        .catch(() => this.scene = 'error');
     },
   },
 }
@@ -229,5 +213,7 @@ export default {
 
 <style scoped lang="scss">
 .manager-page {
+  min-height: calc(100vh - 61px);
+  background-color: #f0f2fa;
 }
 </style>

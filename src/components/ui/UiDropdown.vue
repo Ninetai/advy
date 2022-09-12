@@ -1,14 +1,11 @@
 <template>
   <div data-app class="ui-dropdown">
-    <v-menu offset-y>
+    <v-menu left>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-            v-bind="attrs" v-on="on"
-            class="ui-dropdown__button"
-        ></v-btn>
+        <v-btn v-bind="attrs" v-on="on" class="ui-dropdown__button"></v-btn>
       </template>
       <v-list>
-        <slot/>
+        <slot />
       </v-list>
     </v-menu>
   </div>
@@ -17,25 +14,25 @@
 <script>
 export default {
   name: 'UiDropdown',
-  provide () {
+  provide() {
     return {
       sharedState: this.sharedState
     }
   },
-  data () {
+  data() {
     return {
       sharedState: {
         active: false
-      }
+      },
     }
   },
   methods: {
-    toggle () {
-      this.sharedState.active = !this.sharedState.active;
-    },
-    close() {
-      this.sharedState.active = false;
-    }
+    // toggle() {
+    //   this.sharedState.active = !this.sharedState.active;
+    // },
+    // close() {
+    //   this.sharedState.active = false;
+    // }
   }
 }
 </script>
@@ -53,6 +50,7 @@ export default {
     background-position: center;
     background-size: 24px;
     box-shadow: none;
+
     &:focus,
     &:hover {
       &:before {

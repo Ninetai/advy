@@ -1,16 +1,27 @@
 <template>
   <div id="app">
-    <TheHeader v-if="getAuthToken"/>
-    <router-view/>
-    <TheFooter v-if="$route && $route.name !== 'start'"/>
+    <div v-if="$route && $route.name !== 'start'">
+      <div class="app">
+        <TheLayout />
+        <div class="navbar">
+          <!-- <TheHeader /> -->
+          <router-view />
+        </div>
+      </div>
+      <TheFooter />
+    </div>
+    <div v-else>
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import {mapGetters} from "vuex"
+import { mapGetters } from "vuex"
 import TheHeader from '@/components/TheHeader'
 import TheFooter from '@/components/TheFooter'
+import TheLayout from '@/components/TheLayout'
 
 import Vue from 'vue'
 import VueCookies from 'vue-cookies'
@@ -24,6 +35,7 @@ export default {
   components: {
     TheHeader,
     TheFooter,
+    TheLayout,
   },
   computed: {
     ...mapGetters(['getAuthToken']),
@@ -35,7 +47,7 @@ export default {
     ]),
   },
   mounted() {
-    
+
   },
   created() {
     let autologin = this.$cookies.get('autologin');
@@ -58,5 +70,11 @@ export default {
 </script>
 
 <style lang="scss">
+.app {
+  display: flex;
+}
 
+.navbar {
+  width: calc(100vw - 300px);
+}
 </style>
