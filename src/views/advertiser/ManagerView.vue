@@ -1,5 +1,5 @@
 <template>
-  <main class="manager-page">
+  <main>
     <div class="wrapper wrapper_main">
       <CampaignCreatePopup v-if="isNewCampaign" :mode="'create'" @close-popup="onPopupClose($event)" />
       <CampaignCreatePopup v-if="isEditCampaignPopupOpened" :id="editCampaignId" :mode="'edit'"
@@ -23,7 +23,9 @@
             <translate>Не удалось получить список кампаний. Пожалуйста, попробуйте позже</translate>
           </template>
           <template v-else-if="scene === 'empty'">
-            <translate>Список кампаний пуст</translate>
+            <translate>Список кампаний пуст</translate><br />
+            <!-- <translate>Нет ни одной кампании соответствующей заданным параметрам. </translate><br />
+            <translate>Добавьте кампанию или измените фильтры.</translate> -->
           </template>
           <template v-else-if="scene === 'data'">
             <ManagerList :sortBy.sync="filters.sortBy" :sortDesc.sync="filters.sortDesc" :perPage="filters.perPage"
@@ -33,8 +35,9 @@
           </template>
         </div>
       </div>
-      <ManagerFoot />
+
     </div>
+    <ManagerFoot />
   </main>
 </template>
 
@@ -212,8 +215,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.manager-page {
-  min-height: calc(100vh - 61px);
-  background-color: #f0f2fa;
-}
+
 </style>

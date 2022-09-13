@@ -69,6 +69,7 @@ export default {
 .foot {
     display: flex;
     gap: 20px;
+    padding-left: 0px !important;
     padding: 24px;
 }
 

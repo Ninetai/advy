@@ -75,6 +75,8 @@ export default {
 }
 
 .navbar {
-  width: calc(100vw - 300px);
+  width: calc(100vw - 270px);
+  min-height: calc(100vh - 62px);
+  background-color: #f0f2fa;
 }
 </style>

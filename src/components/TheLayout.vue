@@ -30,6 +30,22 @@
                 </v-list-item>
             </v-list>
         </div>
+
+        <div class="menu-end">
+
+            <v-btn-toggle v-model="toggle_one" mandatory class="menu-toggle">
+                <v-btn value="left" class="toggle-button">
+                    <span class="hidden-sm-and-down ">Личный</span>
+                </v-btn>
+
+                <v-btn value="center" class="toggle-button">
+                    <span class="hidden-sm-and-down ">Агенство</span>
+                </v-btn>
+
+            </v-btn-toggle>
+
+        </div>
+
     </div>
 
 </template>
@@ -48,9 +64,10 @@ export default {
     },
     data() {
         return {
+            switch1: true,
             isNewCampaign: false,
             items: [
-                { title: 'Обзор', icon: Overview, done: false },
+                { title: 'Обзор', icon: Overview, done: true },
                 { title: 'Кампании', icon: Campaigns, done: false },
                 { title: 'Блогеры', icon: Bloggers, done: false },
                 { title: 'Бартер', icon: Barter, done: false },
@@ -76,12 +93,14 @@ export default {
 </script>
 <style scoped>
 .lay-out {
-    width: 300px;
-    padding: 20px;
-    padding-left: 30px;
+    width: 270px;
+    padding: 20px 10px;
+    /* padding-left: 30px; */
     background: #f0f2fa;
     text-align: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .create-button {
@@ -108,5 +127,43 @@ export default {
 
 .unclicked {
     background-color: #f0f2fa;
+}
+
+.menu-end {
+    flex-grow: 1;
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-toggle {
+    border-radius: 20px;
+    background-color: #E9E8EF !important;
+}
+
+.toggle-button {
+    color: black;
+    background-color: #E9E8EF !important;
+    border: 0px !important;
+    border-radius: 20px !important;
+    margin: 2px;
+}
+
+.v-btn-toggle>.v-btn.v-btn--active {
+    background-color: white !important;
+    border-radius: 20px;
+
+}
+
+.theme--light.v-btn:hover:before {
+    opacity: 0 !important;
+    background-color: white !important;
+
+}
+
+.theme--light.v-btn--active:before,
+.theme--light.v-btn--active:hover:before {
+    opacity: 0 !important;
 }
 </style>
