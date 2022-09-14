@@ -1,36 +1,6 @@
 <template>
   <header class="header">
     <div>
-      <!-- <form class="header__bar" action="#">
-        <div class=" ">
-          <input type="search" class="ui-form-field search">
-        </div>
-        <div class="">
-          <select class="select select_field select_company">
-            <option value="" class="select__option">
-              <translate>Соцсеть</translate>
-            </option>
-            <option class="select__option">
-              network.name
-
-            </option>
-          </select>
-        </div>
-        <div class="">
-          <select class="select select_field select_company">
-            <option value="" class="select__option">
-              <translate>Статус</translate>
-            </option>
-            <option class="select__option"> status
-            </option>
-          </select>
-        </div>
-        <div>
-          <button class="setting_img">
-            <img src="@/assets/list-buttons.svg" alt="" class="user__imag profile-link" style="cursor: pointer;">
-          </button>
-        </div>
-      </form> -->
 
       <!-- <router-link :to="{ name: 'manager' }" class="logo logo_header">
         <img src="@/assets/icons/logo.svg" class="logo__image logo__image_header" alt="logo">
@@ -81,7 +51,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 24px;
+  padding: 34px 24px 5px 24px;
   background-color: #f0f2fa;
   box-shadow: 0px -8px 0px rgba(0, 0, 0, 0.05);
 }

@@ -1,21 +1,21 @@
 <template>
   <main>
+    <TheHeader />
     <div class="wrapper wrapper_main">
       <CampaignCreatePopup v-if="isNewCampaign" :mode="'create'" @close-popup="onPopupClose($event)" />
       <CampaignCreatePopup v-if="isEditCampaignPopupOpened" :id="editCampaignId" :mode="'edit'"
         @close-popup="onPopupClose($event)" />
 
       <!-- ADS companies -->
-      <div class="main-content">
-        <!-- <ManagerHead class="manager-page__head" @toggle-filters="isFiltersOpened = !isFiltersOpened"
+      <div class="main-content manager-page">
+        <ManagerHead class="manager-page__head" @toggle-filters="isFiltersOpened = !isFiltersOpened"
           @create-campaign="isNewCampaign = true">
-        </ManagerHead> -->
-        <ManagerHeader :name.sync="filters.name" :status.sync="filters.status" :barter.sync="filters.barter"
-          :budget-from.sync="filters.budgetFrom" :budget-to.sync="filters.budgetTo" :dates.sync="filters.dates">
-        </ManagerHeader>
+          <ManagerFilters v-show="isFiltersOpened" :name.sync="filters.name" :status.sync="filters.status"
+            :barter.sync="filters.barter" :budget-from.sync="filters.budgetFrom" :budget-to.sync="filters.budgetTo"
+            :dates.sync="filters.dates"></ManagerFilters>
+        </ManagerHead>
 
-
-        <div class="main-content__inner" :key="scene" style="text-align:center; align-items:center;">
+        <div class="main-content__inner" :key="scene">
           <template v-if="scene === 'loading'">
             <translate>Загружаем список кампаний...</translate>
           </template>
@@ -23,9 +23,7 @@
             <translate>Не удалось получить список кампаний. Пожалуйста, попробуйте позже</translate>
           </template>
           <template v-else-if="scene === 'empty'">
-            <translate>Список кампаний пуст</translate><br />
-            <!-- <translate>Нет ни одной кампании соответствующей заданным параметрам. </translate><br />
-            <translate>Добавьте кампанию или измените фильтры.</translate> -->
+            <translate>Список кампаний пуст</translate>
           </template>
           <template v-else-if="scene === 'data'">
             <ManagerList :sortBy.sync="filters.sortBy" :sortDesc.sync="filters.sortDesc" :perPage="filters.perPage"
@@ -35,28 +33,28 @@
           </template>
         </div>
       </div>
-
     </div>
-    <ManagerFoot />
   </main>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import TheHeader from '@/components/manager/TheHeader';
 import ManagerList from '@/components/manager/ManagerList';
-import ManagerHeader from '@/components/manager/ManagerHeader';
-import ManagerFoot from '@/components/manager/ManagerFoot';
 import CampaignCreatePopup from '@/components/campaign/CampaignCreatePopup';
+import ManagerHead from '@/components/manager/ManagerHead';
+import ManagerFilters from '@/components/manager/ManagerFilters';
 import UiPagination from '@/components/ui/UiPagination';
 import { buildGetParams } from "@/functions/buildGetParams";
 
 export default {
   name: 'ManagerView',
   components: {
+    TheHeader,
     CampaignCreatePopup,
-    ManagerHeader,
+    ManagerFilters,
+    ManagerHead,
     ManagerList,
-    ManagerFoot,
     UiPagination,
   },
   data() {
@@ -199,7 +197,6 @@ export default {
           ...params,
           ...this.$route.query,
         }
-        // console.log(params)
       }
 
       this.getCampaignList({ id: accountId, query: buildGetParams(params) })
@@ -215,5 +212,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.manager-page {}
 </style>

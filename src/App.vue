@@ -19,7 +19,7 @@
 <script>
 import { mapActions } from 'vuex'
 import { mapGetters } from "vuex"
-import TheHeader from '@/components/TheHeader'
+// import TheHeader from '@/components/TheHeader'
 import TheFooter from '@/components/TheFooter'
 import TheLayout from '@/components/TheLayout'
 
@@ -33,7 +33,7 @@ Vue.use(VueCookies, { expire: '7d', path: '/', domain: cookieDomain })
 export default {
   name: 'App',
   components: {
-    TheHeader,
+    // TheHeader,
     TheFooter,
     TheLayout,
   },

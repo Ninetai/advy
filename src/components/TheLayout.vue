@@ -18,16 +18,17 @@
 
         <div class="menu-title">
             <v-list dense rounded style="background-color: #f0f2fa; ">
-                <v-list-item v-for="item in items" :key="item.title" link
-                    style="padding-left:25px; margin-bottom: 10px; " @click="listItem(item)"
-                    :class="{'clicked':item.done, 'unclicked':!item.done}">
-                    <img :src="item.icon" />
-                    <!-- <v-list-item-title> -->
-                    <div style="padding-left:20px">
-                        <translate>{{ item.title }}</translate>
-                    </div>
-                    <!-- </v-list-item-title> -->
-                </v-list-item>
+                <router-link v-for="item in items" :key="item.title" :to="{name:item.route}">
+                    <v-list-item @click="listItem(item)" style="padding-left:25px; margin-bottom: 10px; "
+                        :class="{'clicked':item.done, 'unclicked':!item.done}">
+                        <img :src="item.icon" />
+                        <!-- <v-list-item-title> -->
+                        <div style="padding-left:20px">
+                            <translate>{{ item.title }}</translate>
+                        </div>
+                        <!-- </v-list-item-title> -->
+                    </v-list-item>
+                </router-link>
             </v-list>
         </div>
 
@@ -67,11 +68,11 @@ export default {
             switch1: true,
             isNewCampaign: false,
             items: [
-                { title: 'Обзор', icon: Overview, done: true },
-                { title: 'Кампании', icon: Campaigns, done: false },
-                { title: 'Блогеры', icon: Bloggers, done: false },
-                { title: 'Бартер', icon: Barter, done: false },
-                { title: 'Информация', icon: infor, done: false },
+                { title: 'Обзор', icon: Overview, done: false, route: 'manager' },
+                { title: 'Кампании', icon: Campaigns, done: false, route: 'campaigns' },
+                { title: 'Блогеры', icon: Bloggers, done: false, route: 'bloggers' },
+                { title: 'Бартер', icon: Barter, done: false, route: 'barter' },
+                { title: 'Информация', icon: infor, done: false, route: 'information' },
             ],
             right: null,
         }
@@ -148,6 +149,7 @@ export default {
     border: 0px !important;
     border-radius: 20px !important;
     margin: 2px;
+    height: 40px !important;
 }
 
 .v-btn-toggle>.v-btn.v-btn--active {

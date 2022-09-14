@@ -4,7 +4,7 @@ import IndexView from '../views/advertiser/IndexView.vue'
 import AdvertiserView from '../views/advertiser/AdvertiserView.vue'
 import InfluencerView from '../views/influencer/InfluencerView.vue'
 import InfluencerPublicView from '../views/influencer/InfluencerPublicView.vue'
-
+import Campaigns from '../views/menulayout/Campaigns.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -15,6 +15,15 @@ const routes: Array<RouteConfig> = [
         meta: {
             title: 'Advy.ai',
             requiresAuth: false
+        },
+    },
+    {
+        path: '/campaigns',
+        name: 'campaigns',
+        component: Campaigns,
+        meta: {
+            title: 'Advy.ai - Campaigns',
+            requiresAuth: true
         },
     },
     {
