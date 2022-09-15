@@ -5,6 +5,7 @@ import AdvertiserView from '../views/advertiser/AdvertiserView.vue'
 import InfluencerView from '../views/influencer/InfluencerView.vue'
 import InfluencerPublicView from '../views/influencer/InfluencerPublicView.vue'
 import Campaigns from '../views/menulayout/Campaigns.vue'
+import Instagram from '../views/Instagram.vue'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -17,14 +18,84 @@ const routes: Array<RouteConfig> = [
             requiresAuth: false
         },
     },
+    // {
+    //     path: '/instagram',
+    //     name: 'instagram',
+    //     component: Instagram,
+    //     meta: {
+    //         title: 'Advy.ai - Instagram Start',
+    //         requiresAuth: true
+    //     },
+    // },
     {
         path: '/campaigns',
-        name: 'campaigns',
+        name: 'campaigns_box',
         component: Campaigns,
-        meta: {
-            title: 'Advy.ai - Campaigns',
-            requiresAuth: true
-        },
+        children:[
+            {
+                path:'campaign_start',
+                name:'campaign_start',
+                component: () => import('../views/campaignlist/CampaignStart.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+            {
+                path:'campaign_signin',
+                name:'campaign_signin',
+                component: () => import('../views/campaignlist/CampaignSignin.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+            {
+                path:'campaign_social',
+                name:'campaign_social',
+                component: () => import('../views/campaignlist/CampaignSocial.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+            {
+                path:'campaign_category',
+                name:'campaign_category',
+                component: () => import('../views/campaignlist/CampaignCategory.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+            {
+                path:'campaign_segment',
+                name:'campaign_segment',
+                component: () => import('../views/campaignlist/CampaignSegment.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+            {
+                path:'campaign_company',
+                name:'campaign_company',
+                component: () => import('../views/campaignlist/CampaignCompany.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+            {
+                path:'campaign_final',
+                name:'campaign_final',
+                component: () => import('../views/campaignlist/CampaignFinal.vue'),
+                meta: {
+                    title: 'Advy.ai - Campaign Start',
+                    requiresAuth: true
+                },
+            },
+        ]
     },
     {
         path: '/a',
@@ -176,6 +247,7 @@ const routes: Array<RouteConfig> = [
             },
         ]
     },
+    
     {
         path: '/influencer/:id/:account',
         name: 'influencer',

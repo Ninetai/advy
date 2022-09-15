@@ -21,7 +21,7 @@
 
         <v-card outlined class="foot-card">
             <UiFootMenu :title="'Другие компании'" />
-            <div style="display:flex; gap: 10px">
+            <div style="display:flex; gap: 10px; ">
                 <div v-for="company in companies" :key="company.name" class="foot-box">
                     <img :src="company.imgsource" style="transform: translate(0px,-20px) ;" alt="">
                     <h4 style="font-weight: bold; margin-top:-35px">{{company.name}}</h4>
@@ -71,6 +71,7 @@ export default {
     gap: 20px;
     padding-left: 0px !important;
     padding: 24px;
+    flex-wrap: wrap;
 }
 
 .foot-card {

@@ -23,36 +23,6 @@
           <img src="@/assets/list-buttons.svg" alt="" class="user__imag profile-link" style="cursor: pointer;">
         </button>
       </div>
-      <!-- <div class="manager-filters__field">
-        <p class="form-document__text form-document__text_filter form-document__text_manager">
-          <translate>Бюджет</translate>
-        </p>
-        <input v-model.number="currentBudgetFrom" @input="$emit('update:budgetFrom', currentBudgetFrom)" type="text"
-          class="ui-form-field budget" :placeholder="$gettext('От')">
-        <p class="form-document__text form-document__text_divide">-</p>
-        <input v-model.number="currentBudgetTo" @input="$emit('update:budgetTo', currentBudgetTo)" type="text"
-          class="ui-form-field budget" :placeholder="$gettext('До')">
-      </div>
-      <div class="manager-filters__field">
-        <p class="form-document__text form-document__text_filter form-document__text_manager">
-          <translate>Бартер</translate>
-        </p>
-        <div class="filter__inner">
-          <div v-for="value in barterList" class="filter__block">
-            <label class="form-label form-label_filter">
-              <span class="form-label__check-con form-label__check-filter">
-                <input v-model="currentBarter" @change="$emit('update:barter', currentBarter)" class="form-label__check"
-                  type="radio" name="check" :value="value.key" checked>
-                <span class="form-label__marker form-label__marker_filter"></span>
-              </span>
-              <span class="form-label__name form-label__name_filter">{{ value.title }}</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="manager-filters__field action">
-        <UiRefreshButton @refresh-emit="reset" />
-      </div> -->
     </form>
     <div class="header__user">
       <TheNotificate />
@@ -69,7 +39,7 @@ import UiDateRangePicker from '@/components/ui/UiDateRangePicker'
 import UiRefreshButton from '@/components/ui/UiRefreshButton'
 
 export default {
-  name: 'ManagerFilters',
+  name: 'CampaignFilters',
   components: {
     UiDateRangePicker,
     UiRefreshButton,

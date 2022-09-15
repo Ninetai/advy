@@ -1,20 +1,19 @@
 <template>
     <main>
         <div class="wrapper wrapper_main">
-            <CampaignCreatePopup v-if="isNewCampaign" :mode="'create'" @close-popup="onPopupClose($event)" />
+            <!-- <CampaignCreatePopup v-if="isNewCampaign" :mode="'create'" @close-popup="onPopupClose($event)" />
             <CampaignCreatePopup v-if="isEditCampaignPopupOpened" :id="editCampaignId" :mode="'edit'"
-                @close-popup="onPopupClose($event)" />
-
+                @close-popup="onPopupClose($event)" /> -->
             <!-- ADS companies -->
+            <router-view />
             <div class="main-content">
-                <ManagerHead class="manager-page__head" @toggle-filters="isFiltersOpened = !isFiltersOpened"
+                <CampaignHeader class="manager-page__head" @toggle-filters="isFiltersOpened = !isFiltersOpened"
                     @create-campaign="isNewCampaign = true">
                     <CampaignHeader :name.sync="filters.name" :status.sync="filters.status"
                         :barter.sync="filters.barter" :budget-from.sync="filters.budgetFrom"
                         :budget-to.sync="filters.budgetTo" :dates.sync="filters.dates">
                     </CampaignHeader>
-                </ManagerHead>
-
+                </CampaignHeader>
 
                 <div class="main-content__inner" :key="scene" style="text-align:center; align-items:center;">
                     <template v-if="scene === 'loading'">
@@ -26,10 +25,10 @@
                     <template v-else-if="scene === 'empty'">
                         <translate>Список кампаний пуст</translate><br />
                         <!-- <translate>Нет ни одной кампании соответствующей заданным параметрам. </translate><br />
-              <translate>Добавьте кампанию или измените фильтры.</translate> -->
+                        <translate>Добавьте кампанию или измените фильтры.</translate> -->
                     </template>
                     <template v-else-if="scene === 'data'">
-                        <ManagerList :sortBy.sync="filters.sortBy" :sortDesc.sync="filters.sortDesc"
+                        <CampaignList :sortBy.sync="filters.sortBy" :sortDesc.sync="filters.sortDesc"
                             :perPage="filters.perPage" @reload-list="loadCampaignList"
                             @open-edit-popup="openEditPopup($event)" />
                         <UiPagination :page.sync="filters.page" :page-count.sync="pageCount"
@@ -45,19 +44,18 @@
   
 <script>
 import { mapActions } from "vuex";
-import ManagerList from '@/components/manager/ManagerList';
+import CampaignList from '@/components/menucampaigns/CampaignList';
 import CampaignHeader from '@/components/menucampaigns/CampaignHeader';
 import CampaignFooter from '@/components/menucampaigns/CampaignFooter';
-import CampaignCreatePopup from '@/components/campaign/CampaignCreatePopup';
+// import CampaignCreatePopup from '@/components/campaign/CampaignCreatePopup';
 import UiPagination from '@/components/ui/UiPagination';
 import { buildGetParams } from "@/functions/buildGetParams";
 
 export default {
-    name: 'ManagerView',
+    name: 'CampaignsView',
     components: {
-        CampaignCreatePopup,
         CampaignHeader,
-        ManagerList,
+        CampaignList,
         CampaignFooter,
         UiPagination,
     },
@@ -102,6 +100,8 @@ export default {
     },
     created() {
         this.loadPageInfo();
+
+
     },
     mounted() {
         this.$nextTick(() => {
@@ -112,7 +112,8 @@ export default {
         }, {
             immediate: true, // run immediately
             deep: true // detects changes inside objects. not needed here, but maybe in other cases
-        })
+        });
+        this.$router.push({ name: 'campaign_signin' });
     },
     watch: {
         $route: {

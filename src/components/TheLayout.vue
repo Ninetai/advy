@@ -34,7 +34,7 @@
 
         <div class="menu-end">
 
-            <v-btn-toggle v-model="toggle_one" mandatory class="menu-toggle">
+            <v-btn-toggle mandatory class="menu-toggle">
                 <v-btn value="left" class="toggle-button">
                     <span class="hidden-sm-and-down ">Личный</span>
                 </v-btn>
@@ -69,7 +69,7 @@ export default {
             isNewCampaign: false,
             items: [
                 { title: 'Обзор', icon: Overview, done: false, route: 'manager' },
-                { title: 'Кампании', icon: Campaigns, done: false, route: 'campaigns' },
+                { title: 'Кампании', icon: Campaigns, done: false, route: 'campaigns_box' },
                 { title: 'Блогеры', icon: Bloggers, done: false, route: 'bloggers' },
                 { title: 'Бартер', icon: Barter, done: false, route: 'barter' },
                 { title: 'Информация', icon: infor, done: false, route: 'information' },

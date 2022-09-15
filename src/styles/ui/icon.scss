@@ -63,6 +63,118 @@
     background-color: #333333;
   }
 
+  &.apple1::before {
+    background-color: grey;
+    background-image: url('@/assets/camp_icons/apple.svg');
+
+     mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.apple1:hover::before {
+    background-color: #196991;
+  }
+
+  &.kommy::before {
+    background-color: #FE5B6A;
+
+     mask: url('@/assets/camp_icons/kommy.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/camp_icons/kommy.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.kommy:hover::before {
+    background-color: #196991;
+  }
+
+  &.mercedes::before {
+    background-color: #000000;
+
+     mask: url('@/assets/camp_icons/mercedes.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/camp_icons/mercedes.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.mercedes:hover::before {
+    background-color: #196991;
+  }
+
+  &.ozon::before {
+    background-image: url('@/assets/camp_icons/ozon.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.ozon:hover::before {
+    background-color: #196991;
+  }
+
+  &.space::before {
+    background-image: url('@/assets/camp_icons/space.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.space:hover::before {
+    background-color: #196991;
+  }
+
+  &.willd::before {
+    background-image: url('@/assets/camp_icons/willd.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.willd:hover::before {
+    background-color: #196991;
+  }
+
+  &.xiaomi::before {
+    background-color: #FE5B6A;
+
+     mask: url('@/assets/camp_icons/xiaomi.svg') no-repeat 50%;
+    -webkit-mask: url('@/assets/camp_icons/xiaomi.svg') no-repeat 50%;
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.xiaomi:hover::before {
+    background-color: #196991;
+  }
+
+  &.chart1::before {
+    background-image: url('@/assets/camp_icons/chart1.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.chart2::before {
+    background-image: url('@/assets/camp_icons/chart2.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.chart3::before {
+    background-image: url('@/assets/camp_icons/chart3.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
+  &.chart4::before {
+    background-image: url('@/assets/camp_icons/chart4.svg');
+
+    mask-size: 95%;
+    -webkit-mask-size: 95%;
+  }
+
 }
 
 .icon-thumb {
